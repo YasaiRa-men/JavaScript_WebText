@@ -33,7 +33,7 @@
     />
     <link rel="stylesheet" href="style.css" />
 
-    <title></title>
+    <title>JavaScript でゲームを作ろう</title>
   </head>
 
   <body>
@@ -42,41 +42,37 @@
       <div id="g-nav-list">
         <!-- ---------------------------------------- -->
          <ul>
-<li><a href="#概要" id="toc-概要"><span
-class="toc-section-number">1</span> 概要</a>
-<ul>
 <li><a href="#前回の復習" id="toc-前回の復習"><span
-class="toc-section-number">1.1</span> 前回の復習</a></li>
+class="toc-section-number">1</span> 前回の復習</a></li>
 <li><a href="#今回の講義の達成目標" id="toc-今回の講義の達成目標"><span
-class="toc-section-number">1.2</span> 今回の講義の達成目標</a></li>
-</ul></li>
+class="toc-section-number">2</span> 今回の講義の達成目標</a></li>
 <li><a href="#はじめに" id="toc-はじめに"><span
-class="toc-section-number">2</span> はじめに</a></li>
+class="toc-section-number">3</span> はじめに</a></li>
 <li><a href="#css-の基本" id="toc-css-の基本"><span
-class="toc-section-number">3</span> CSS の基本</a>
+class="toc-section-number">4</span> CSS の基本</a>
 <ul>
 <li><a href="#css-とは" id="toc-css-とは"><span
-class="toc-section-number">3.1</span> CSS とは</a></li>
+class="toc-section-number">4.1</span> CSS とは</a></li>
 </ul></li>
 <li><a href="#css-の記述方法" id="toc-css-の記述方法"><span
-class="toc-section-number">4</span> CSS の記述方法</a>
+class="toc-section-number">5</span> CSS の記述方法</a>
 <ul>
 <li><a href="#インラインスタイル" id="toc-インラインスタイル"><span
-class="toc-section-number">4.1</span> インラインスタイル</a></li>
+class="toc-section-number">5.1</span> インラインスタイル</a></li>
 <li><a href="#内部スタイルシート" id="toc-内部スタイルシート"><span
-class="toc-section-number">4.2</span> 内部スタイルシート</a></li>
+class="toc-section-number">5.2</span> 内部スタイルシート</a></li>
 <li><a href="#外部スタイルシート" id="toc-外部スタイルシート"><span
-class="toc-section-number">4.3</span> 外部スタイルシート</a></li>
+class="toc-section-number">5.3</span> 外部スタイルシート</a></li>
 </ul></li>
 <li><a href="#セレクタ" id="toc-セレクタ"><span
-class="toc-section-number">5</span> セレクタ</a>
+class="toc-section-number">6</span> セレクタ</a>
 <ul>
 <li><a href="#タイプセレクタ" id="toc-タイプセレクタ"><span
-class="toc-section-number">5.1</span> タイプセレクタ</a></li>
+class="toc-section-number">6.1</span> タイプセレクタ</a></li>
 <li><a href="#クラスセレクタ" id="toc-クラスセレクタ"><span
-class="toc-section-number">5.2</span> クラスセレクタ</a></li>
+class="toc-section-number">6.2</span> クラスセレクタ</a></li>
 <li><a href="#id-セレクタ" id="toc-id-セレクタ"><span
-class="toc-section-number">5.3</span> ID セレクタ</a></li>
+class="toc-section-number">6.3</span> ID セレクタ</a></li>
 </ul></li>
 </ul> 
         <!-- ---------------------------------------- -->
@@ -90,15 +86,13 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
 
     <main class="markdown-body">
       <!-- ---------------------------------------- -->
-      <h1 data-number="1" id="概要"><span
-      class="header-section-number">1</span> 概要</h1>
-      <h2 data-number="1.1" id="前回の復習"><span
-      class="header-section-number">1.1</span> 前回の復習</h2>
+      <h1 data-number="1" id="前回の復習"><span
+      class="header-section-number">1</span> 前回の復習</h1>
       <ul>
       <li>HTML のタグについて学んだ</li>
       </ul>
-      <h2 data-number="1.2" id="今回の講義の達成目標"><span
-      class="header-section-number">1.2</span> 今回の講義の達成目標</h2>
+      <h1 data-number="2" id="今回の講義の達成目標"><span
+      class="header-section-number">2</span> 今回の講義の達成目標</h1>
       <div class="note type-intro">
       <p>達成目標</p>
       <p>CSS の基本的な記述方法を学ぼう。</p>
@@ -106,18 +100,18 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       <p>セレクタの使い方を理解しよう。</p>
       <p>レイアウトの基本を学ぼう。</p>
       </div>
-      <h1 data-number="2" id="はじめに"><span
-      class="header-section-number">2</span> はじめに</h1>
+      <h1 data-number="3" id="はじめに"><span
+      class="header-section-number">3</span> はじめに</h1>
       <ul>
       <li>今回は、CSS の基礎について学ぶ。</li>
       <li>CSS は、HTML
       の要素を装飾し、レイアウトを整えるためのスタイルシート言語である。</li>
       <li>ひとまず、CSS を使って基本的なスタイルを設定してみよう。</li>
       </ul>
-      <h1 data-number="3" id="css-の基本"><span
-      class="header-section-number">3</span> CSS の基本</h1>
-      <h2 data-number="3.1" id="css-とは"><span
-      class="header-section-number">3.1</span> CSS とは</h2>
+      <h1 data-number="4" id="css-の基本"><span
+      class="header-section-number">4</span> CSS の基本</h1>
+      <h2 data-number="4.1" id="css-とは"><span
+      class="header-section-number">4.1</span> CSS とは</h2>
       <ul>
       <li>CSS（Cascading Style Sheets）は、HTML
       要素のスタイルを定義するための言語である。色、フォント、レイアウトなどを指定できる。</li>
@@ -137,8 +131,8 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       <ul>
       <li>制作するゲーム画面でもこのような感じで使われている。</li>
       </ul>
-      <h1 data-number="4" id="css-の記述方法"><span
-      class="header-section-number">4</span> CSS の記述方法</h1>
+      <h1 data-number="5" id="css-の記述方法"><span
+      class="header-section-number">5</span> CSS の記述方法</h1>
       <ul>
       <li>CSS の記述方法には主に 3 つの方法がある。</li>
       </ul>
@@ -150,8 +144,8 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       <ul>
       <li>今回はこの 3 つの方法で p タグに色を指定しました。</li>
       </ul>
-      <h2 data-number="4.1" id="インラインスタイル"><span
-      class="header-section-number">4.1</span> インラインスタイル</h2>
+      <h2 data-number="5.1" id="インラインスタイル"><span
+      class="header-section-number">5.1</span> インラインスタイル</h2>
       <ul>
       <li>インラインスタイルは、HTML タグの style 属性に直接 CSS
       を記述する方法。</li>
@@ -165,8 +159,8 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       data-cites="YasaiRa-men">@YasaiRa-men</span></a>) on
       <a href="https://codepen.io">CodePen</a>.
       </iframe>
-      <h2 data-number="4.2" id="内部スタイルシート"><span
-      class="header-section-number">4.2</span> 内部スタイルシート</h2>
+      <h2 data-number="5.2" id="内部スタイルシート"><span
+      class="header-section-number">5.2</span> 内部スタイルシート</h2>
       <ul>
       <li>内部スタイルシートは、HTML
       ファイルの<code>&lt;head&gt;</code>セクション内に<code>&lt;style&gt;</code>タグを使って
@@ -193,8 +187,8 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       data-cites="YasaiRa-men">@YasaiRa-men</span></a>) on
       <a href="https://codepen.io">CodePen</a>.
       </iframe>
-      <h2 data-number="4.3" id="外部スタイルシート"><span
-      class="header-section-number">4.3</span> 外部スタイルシート</h2>
+      <h2 data-number="5.3" id="外部スタイルシート"><span
+      class="header-section-number">5.3</span> 外部スタイルシート</h2>
       <ul>
       <li><p>外部スタイルシートは、別の CSS ファイルを作成し、それを
       HTML ファイルにリンクする方法。</p></li>
@@ -225,14 +219,14 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       data-cites="YasaiRa-men">@YasaiRa-men</span></a>) on
       <a href="https://codepen.io">CodePen</a>.
       </iframe>
-      <h1 data-number="5" id="セレクタ"><span
-      class="header-section-number">5</span> セレクタ</h1>
+      <h1 data-number="6" id="セレクタ"><span
+      class="header-section-number">6</span> セレクタ</h1>
       <ul>
       <li>セレクタは、どの HTML
       要素にスタイルを適用するかを指定するためのもの。</li>
       </ul>
-      <h2 data-number="5.1" id="タイプセレクタ"><span
-      class="header-section-number">5.1</span> タイプセレクタ</h2>
+      <h2 data-number="6.1" id="タイプセレクタ"><span
+      class="header-section-number">6.1</span> タイプセレクタ</h2>
       <ul>
       <li>要素の種類を指定するセレクタ。</li>
       <li>今回の例だと p 要素を指定している。</li>
@@ -252,8 +246,8 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       data-cites="YasaiRa-men">@YasaiRa-men</span></a>) on
       <a href="https://codepen.io">CodePen</a>.
       </iframe>
-      <h2 data-number="5.2" id="クラスセレクタ"><span
-      class="header-section-number">5.2</span> クラスセレクタ</h2>
+      <h2 data-number="6.2" id="クラスセレクタ"><span
+      class="header-section-number">6.2</span> クラスセレクタ</h2>
       <ul>
       <li>クラス属性を持つ要素を指定するセレクタ。クラス名はピリオド（.）を使って指定する。</li>
       </ul>
@@ -272,8 +266,8 @@ class="toc-section-number">5.3</span> ID セレクタ</a></li>
       data-cites="YasaiRa-men">@YasaiRa-men</span></a>) on
       <a href="https://codepen.io">CodePen</a>.
       </iframe>
-      <h2 data-number="5.3" id="id-セレクタ"><span
-      class="header-section-number">5.3</span> ID セレクタ</h2>
+      <h2 data-number="6.3" id="id-セレクタ"><span
+      class="header-section-number">6.3</span> ID セレクタ</h2>
       <ul>
       <li>ID 属性を持つ要素を指定するセレクタ。ID
       名はハッシュ記号（#）を使って指定する。</li>

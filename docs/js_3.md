@@ -4,7 +4,7 @@ var:
     header-date: "2024/04/23"
 ---
 
-# 教育カリキュラム
+# JavaScript でゲームを作ろう
 
 ## 概要
 
@@ -79,6 +79,16 @@ anime({
 
 <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/YasaiRa-men/embed/ExBpopN?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/YasaiRa-men/pen/ExBpopN">
+  Untitled</a> by バナナフライ (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+### 移動のイージング
+
+-   先程作ったマウスや指についてくる丸にもこの anime.js を用いることで、主人公を緩やかな動きに変えることができます。
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/YasaiRa-men/embed/GgKZaOE?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/YasaiRa-men/pen/GgKZaOE">
   Untitled</a> by バナナフライ (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>

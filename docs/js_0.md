@@ -4,7 +4,7 @@ var:
     header-date: "2024/04/23"
 ---
 
-# 教育カリキュラム
+# JavaScript でゲームを作ろう
 
 ## 概要
 
@@ -430,6 +430,8 @@ console.log(message); // -- > エラー
 ## 条件分岐
 
 -   条件分岐は、プログラムが特定の条件に応じて異なる処理を行うための構造です。JavaScript では、主に`if`、`else if`、`else`文が使用されます。
+
+![img](figs/js/if.png)
 
 ```javascript{.numberLines caption="main.js"}
 let score = 75;

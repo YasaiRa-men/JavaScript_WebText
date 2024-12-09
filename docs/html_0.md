@@ -4,7 +4,7 @@ var:
     header-date: "2024/04/23"
 ---
 
-# 教育カリキュラム
+# JavaScript でゲームを作ろう
 
 ## 概要
 
@@ -66,4 +66,4 @@ var:
 
 ![img](figs/html/lang.gif)
 
--   これで、`<html lang=”ja”>`で、ひな形を作成してくれます。
+-   これで、`<html lang=”ja”>`で、雛形を作成してくれます。

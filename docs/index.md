@@ -1,14 +1,14 @@
 ---
 var:
-  header-title: "オンラインテキストテンプレート"
-  header-date: "2024/04/23"
+    header-title: "オンラインテキストテンプレート"
+    header-date: "2024/04/23"
 ---
 
-# 目次
+# JavaScript でゲームを作ろう
 
 ## 目次
 
-- 目次です。クリックするとそこの講義資料へ移動します。
+-   目次です。クリックするとそこの講義資料へ移動します。
 
 ## はじめに
 
@@ -16,31 +16,31 @@ var:
 
 ### [環境構築](build.html)
 
-- プログラミングをするための環境構築をしよう！
+-   プログラミングをするための環境構築をしよう！
 
 ## HTML
 
-### [HTMLとは](html_0.html)
+### [HTML とは](html_0.html)
 
-- HTMLの基本を学ぼう！
+-   HTML の基本を学ぼう！
 
-### [HTMLのタグとは](html_1.html)
+### [HTML のタグとは](html_1.html)
 
 ## CSS
 
-### [CSSとは](css_0.html)
+### [CSS とは](css_0.html)
 
-- CSSは装飾
+-   CSS は装飾
 
-### [CSSによる装飾](css_1.html)
+### [CSS による装飾](css_1.html)
 
 ## JavaScript
 
-### [JavaScriptとは](js_0.html)
+### [JavaScript とは](js_0.html)
 
-- JavaScriptでHTMLに動きをつけよう
+-   JavaScript で HTML に動きをつけよう
 
-### [HTMLの要素を動かす](js_1.html)
+### [HTML の要素を動かす](js_1.html)
 
 ### [Anime.js](js_3.html)
 
