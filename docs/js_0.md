@@ -40,8 +40,19 @@ alert(10);
 -   ただし、これだけでは、HTML にこの JavaScript ファイルを読み込んでくれない。
     なので、HTML の**body**内にこのように書いて読み込ませる必要がある。
 
-```html{caption="index.html"}
-<script src="main.js"></script>
+```html{.numberLines caption="index.html"}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScriptを学ぶ</title>
+</head>
+<body>
+    <!--scriptタグでJavaScriptを呼び出す-->
+    <script src="main.js"></script>
+</body>
+</html>
 ```
 
 -   この**script**タグで、JavaScript を読み込んでくれるようになり、**src**属性で、どの JavaScript ファイルを読み込むかを記述する。

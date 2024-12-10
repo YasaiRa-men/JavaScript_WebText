@@ -59,6 +59,108 @@ let elementsByTag = document.getElementsByTagName("div");
 
 -   これらを取得することによって、その HTML 要素の文字や色あどが JavaScript で変更できるようになります。
 
+### 要素の大きさを取得
+
+-   先程取得したものを使って、要素の大きさを取得することができます。
+
+-   リンクしている HTML ファイルの中に、`content`という名前の ID 属性が付けられているとすると、その要素の大きさを取得するには、`offset`プロパティを使います。
+
+```javascript{.numberLines caption="main.js"}
+let elem = document.getElementById("content");
+
+// 幅を取得
+let elemWidth = elem.offsetWidth;
+
+// 高さを取得
+let elemHeight = elem.offsetHeight;
+```
+
+-   では、h1 タグに ID 属性を付けて、それの幅と高さをコンソールに出力してみよう。
+
+```html{.numberLines caption="index.html"}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>解答</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1 id="content">こんにちは！！！！！！</h1>
+        <script src="main.js"></script>
+    </body>
+</html>
+```
+
+```css{.numberLines caption="style.css"}
+/*色を変えて大きさが分かりやすいようにする*/
+#content {
+    background-color: chartreuse;
+}
+```
+
+```javascript{.numberLines caption="main.js"}
+let elem = document.getElementById("content");
+
+// 幅を取得
+let elemWidth = elem.offsetWidth;
+// 高さを取得
+let elemHeight = elem.offsetHeight;
+
+console.log(elemWidth);
+
+console.log(elemHeight);
+```
+
+-   コンソールに表示されていれば成功です！
+
+![img](figs/js/youso_haba.png)
+
+-   また、左上を原点としてときに要素がどの高さにあるのかを見るには、`offsetTop`を使います。
+
+### ウィンドウの大きさを取得
+
+-   ウィンドウの大きさを取得するには、以下のコードを使います。
+
+```javascript{.numberLines caption="main.js"}
+const Width = window.innerWidth;
+const Height = window.innerHeight;
+```
+
+<div class="note type-quiz">
+Q. ウィンドウの幅と高さを取得して、コンソールの出力してみよう。
+<div class="quizes">
+<div class="options">
+  <div class="option correct">答えを見る</div>
+</div>
+<div class="answercontent">
+答えの一例です。
+
+```javascript{.numberLines caption="main.js"}
+const Width = window.innerWidth;
+const Height = window.innerHeight;
+
+console.log(Width);
+console.log(Height);
+```
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/YasaiRa-men/embed/bNberRE?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/YasaiRa-men/pen/bNberRE">
+  Untitled</a> by バナナフライ (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+-   以下の動画から、幅や高さを変えてからサイトを更新すると、コンソールの中の値が変わっているのが分かります。
+
+![img](figs/js/haba.gif)
+
+</div>
+</div>
+</div>
+
+-   `offset`と`inner`で違ってくるので注意！
+
 ### HTML 要素の変更
 
 -   ひとまず、HTML をこのように書いてみよう。
@@ -95,20 +197,6 @@ element.style.color = "red";
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-### 新しい要素の作成
-
--   Document オブジェクトを使用して、新しい HTML 要素を作成し、ページに追加することができます。以下は、新しい要素を作成してページに追加する例です。
-
-```javascript{.numberLines caption="main.js"}
-let newElement = document.createElement("p");
-newElement.textContent = "新しい段落";
-document.body.appendChild(newElement);
-```
-
-### Document オブジェクトの活用
-
--   Document オブジェクトを活用することで、動的な Web ページの作成や操作が可能となります。JavaScript を使用して、ユーザーとのインタラクションやページの動的な変更を実現する際に Document オブジェクトは重要な役割を果たします。
-
 <div class="note type-quiz">
 Q. 以下のHTMLのp要素に「こんにちは」という文字を入れ、の背景を青に、横幅を100%にしよう。
 ```html{caption="index.html"}
@@ -129,6 +217,39 @@ Q. 以下のHTMLのp要素に「こんにちは」という文字を入れ、の
 </div>
 </div>
 </div>
+
+### 新しい要素の作成
+
+-   JavaScript から新しく要素を作成したい場合、`insertAdjacentHTML`メソッドを使用します。
+
+-   insertAdjacentHTML は、HTML 要素の隣に指定した位置で新しい HTML コードを挿入するためのメソッドです。このメソッドを使うと、既存の要素を操作することなく、効率的に新しい内容を挿入できます。
+
+```javascript{.numberLines caption="main.js"}
+element.insertAdjacentHTML(position, htmlString);
+```
+
+<div class="note type-tips">
+- element: HTML を挿入する対象の要素。
+- position: 挿入する位置を指定する文字列（以下の 4 種類から選択）。
+- htmlString: 挿入する HTML 文字列。
+</div>
+
+-   position は、どこに配置するかで、4 種類から選びます。
+
+| 値             | 意味                                 |
+| -------------- | ------------------------------------ |
+| "beforebegin": | 要素の直前（要素の外側）             |
+| "afterbegin" : | 要素の最初の子要素の前（要素の内側） |
+| "beforeend" :  | 要素の最後の子要素の後（要素の内側） |
+| "afterend" :   | 要素の直後（要素の外側）             |
+
+-   以下の CodePen からそれぞれの position でどこに追加されるか確認してみよう！
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/YasaiRa-men/embed/dPbXzpg?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/YasaiRa-men/pen/dPbXzpg">
+  Untitled</a> by バナナフライ (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ## WebKitCSSMatrix
 
@@ -239,6 +360,79 @@ element.removeEventListener(eventType, listenerFunction);
 - listenerFunction: 削除したいイベントリスナーとして指定した関数。
 </div>
 
+<div class="note type-quiz">
+Q. 以下のHTMLとJavaScriptがあったとき、JavaScriptを書き加えてスタートボタンが押されたらスコアの増加が0から始まってストップボタンが押されたらスコアの増加が止まるコードを書いてみよう。
+ヒント：スコアの増加は<u>setInterval</u>で行います。
+```html{caption="index.html"}
+<h2 id="Score">0</h2>
+<button id="startButton">スタート</button>
+<button id="stopButton">ストップ</button>
+<script src="main.js"></script>
+```
+
+```javascript{caption="main.js"}
+const scoreElement = document.getElementById("Score");
+const startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton");
+
+let score = 0; // スコアの初期値
+let scoreInterval; // スコアを増加させるためのタイマー ID
+
+// スタートボタンのクリックイベント
+startButton.addEventListener("click", () => {
+// ここに処理を書く
+});
+
+// ストップボタンのクリックイベント
+stopButton.addEventListener("click", () => {
+// ここに処理を書く
+});
+
+```
+
+<div class="quizes">
+<div class="options">
+  <div class="option correct">答えを見る</div>
+</div>
+<div class="answercontent">
+答えの一例です。
+
+```javascript{caption="main.js"}
+const scoreElement = document.getElementById("Score");
+const startButton = document.getElementById("startButton");
+const stopButton = document.getElementById("stopButton");
+
+let score = 0; // スコアの初期値
+let scoreInterval; // スコアを増加させるためのタイマー ID
+
+// スタートボタンのクリックイベント
+startButton.addEventListener("click", () => {
+  // スコアを初期化
+  score = 0;
+  // スコア増加を開始
+  scoreInterval = setInterval(() => {
+    score++;
+    scoreElement.textContent = score;
+  }, 10); // 10ms ごとにスコアを 1 増加
+});
+
+// ストップボタンのクリックイベント
+stopButton.addEventListener("click", () => {
+  // スコア増加を停止
+  clearInterval(scoreInterval);
+});
+
+```
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="timer" src="https://codepen.io/YasaiRa-men/embed/ByBzwjW?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/YasaiRa-men/pen/ByBzwjW">
+  timer</a> by バナナフライ (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+</div>
+</div>
+</div>
+
 ## 距離計算
 
 -   障害物に当たるとゲームオーバーになるようにするには、障害物との距離を計算する必要があります。
@@ -255,6 +449,8 @@ element.removeEventListener(eventType, listenerFunction);
 
 -   `getBoundingClientRect()`はターゲット要素をの位置をブラウザの表示領域の左上を(0, 0)として、そこからの相対位置で示されています。これによって自分、または障害物がどこにあるのかを調べることができます。
 
+![img](figs/js/zahyou.png)
+
 ```javascript{.numberLines caption="script.js"}
 // 自分の位置を取得
 const circleRect = circle.getBoundingClientRect();
@@ -264,7 +460,7 @@ const obstacleRect = obstacle.getBoundingClientRect();
 
 -   距離計算の関数について解説します。
 
--   距離は、このように計算あうることで求めることができます。
+-   距離は、このように計算することで求めることができます。
 
 $$距離=\sqrt{縦^{2} + 横^{2}}$$
 

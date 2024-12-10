@@ -8,6 +8,8 @@ var:
 
 ## まずはステージを作成しよう
 
+-   これからゲームを作っていきますが、まだ紹介していない HTML タグや CSS タグがありますが、それらは出てきたときに軽く解説します。
+
 ### 枠の作成
 
 -   まずは、HTML と CSS を使って簡単なステージを作ってみよう。
@@ -41,6 +43,14 @@ var:
 
 -   今回は、スマホをメインにすることから縦長にします。
 
+-   `main`というタグを使っていますが、意味合い的には`div`と同じです。
+
+<div class="note type-tips">
+
+-   内部では主要部分として扱われ、`main`は 1 つの HTML に基本 1 つまでですが、それ例外の扱いは`div`と同じです。
+
+</div>
+
 ```html{.numberLines caption="index.html"}
 <!DOCTYPE html>
 <html lang="ja">
@@ -52,7 +62,7 @@ var:
 </head>
 <body>
     <main>
-      <!--ゲーム画面の大きさ-->
+        <!--ゲーム画面の大きさ-->
         <div id="mainWindow">
 
             <!--主人公の移動領域-->
@@ -70,10 +80,28 @@ var:
 </html>
 ```
 
+-   前回の CSS では、主要なものを紹介しましたが、あまり使わないものもあります。
+
+-   ここでは、それらについて軽く触れておきます。
+
+position: absolute;
+
+-   `position`プロパティでは、配置をどのようにするかを決めるものです。
+
+-   `absolute`だと、その要素を現在の位置から<u>好きな場所に配置すること</u>ができるようになります。
+
+<div class="note type-tips">
+
+-   top : 要素が起点の上からどれだけ離れているかを示します
+-   bottom : 要素が起点の下からどれだけ離れているかを示します
+-   left : 要素が起点の左からどれだけ離れているかを示します
+-   right : 要素が起点の右からどれだけ離れているかを示します
+
+</div>
+
 ```css{.numberLines caption="style.css"}
 html,
 body {
-    overflow: hidden;
     height: 100%;
 }
 
@@ -82,7 +110,7 @@ body {
 }
 
 main {
-    transform: translateX(50%);
+    transform: translateX(50%); /*メインの位置を50%右にずらす*/
     width: 100%;
     height: 100%;
 }
@@ -91,14 +119,14 @@ main {
     background-color: rgb(3, 50, 151);
     height: 100%;
     aspect-ratio: 9 / 16;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /*ステージ枠を50%左にずらす*/
 }
 
 #gameTitle {
-    position: absolute;
+    position: absolute; /*相対位置にする*/
     color: white;
-    top: 50%;
-    left: 50%;
+    top: 50%; /*上から50%の位置に*/
+    left: 50%; /*左から50%の位置に*/
     transform: translate(-50%, -50%);
 }
 
@@ -106,9 +134,9 @@ main {
     background-color: rgb(85, 131, 233);
     position: absolute;
     width: 100%;
-    height: 100px;
-    bottom: 100px;
-    z-index: -1;
+    height: 18%;
+    bottom: 18%; /*下から18%の位置に*/
+    z-index: -1; /*レイヤーを最背面に*/
 }
 ```
 
@@ -127,13 +155,19 @@ main {
 -   次に、ボタンが押されたら主人公が出現するようにしよう。
 -   主人公は、のちに JavaScript で操作できるように、"target"という id 属性をつけます。
 
-```html{.numberLines caption="example02.html"}
+<div class="note type-tips">
+
+-   js ファイルを作ったら、HTML に`script`タグを追加するのを忘れずに！
+
+</div>
+
+```html{.numberLines caption="index.html"}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
+    <title>避けプル</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -157,37 +191,9 @@ main {
 
 -   また、主人公には分かりやすいように色を茶色の丸にしておきます。
 
-```css{.numberLines caption="example01.css"}
-html,
-body {
-    overflow: hidden;
-    height: 100%;
-}
+```css{.numberLines caption="style.css"}
 
-body {
-    margin: 0px;
-}
-
-main {
-    transform: translateX(50%);
-    width: 100%;
-    height: 100%;
-}
-
-#mainWindow {
-    background-color: rgb(3, 50, 151);
-    height: 100%;
-    aspect-ratio: 9 / 16;
-    transform: translateX(-50%);
-}
-
-#gameTitle {
-    position: absolute;
-    color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+/*既存のコード*/
 
 /*主人公*/
 #target {
@@ -199,14 +205,6 @@ main {
     border-radius: 50%;
 }
 
-#targetField {
-    background-color: rgb(85, 131, 233);
-    position: absolute;
-    width: 100%;
-    height: 100px;
-    bottom: 100px;
-    z-index: -1;
-}
 ```
 
 -   これによって、このようになりました。
@@ -219,16 +217,38 @@ main {
 
 -   分かりやすく主人公が出てきましたが、左上にいます。
 -   これらも自分で設定していかなければなりません。
--   スタートボタンが押されたら主人公が移動範囲内の中心に出現するようにしよう。
+
+### 主人公の位置を中央に
+
+-   スタートボタンが押されたら主人公が移動範囲内の中心に出現するようにしたいが、それには少し計算が必要です。
+
+-   要素の基準点は、基本<u>左上</u>にあるため、それに合わせる必要があります。
+
+-   主人公の要素を`target`、主人公の移動する領域の要素を`targetField`とすると、
+
+```javascript{.numberLines caption="main.js"}
+// 中心のX座標
+// 移動領域の横幅の半分 - 主人公の横幅の半分
+let CenterX = targetField.offsetWidth / 2 - targetelem.offsetWidth / 2;
+
+// 中心のY座標
+// 移動領域までの高さ + 移動領域の縦幅の半分 - 主人公の縦幅の半分
+let CenterY = targetField.offsetTop + targetField.offsetHeight / 2 - targetelem.offsetHeight / 2;
+```
+
+-   となることが分かる。
+
+![img](figs/js/center.png)
+
 -   中心に配置するために ainme.js を用います。
 
-```html{.numberLines caption="example02.html"}
+```html{.numberLines caption="index.html"}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
+    <title>避けプル</title>
 </head>
 <body>
     <main>
@@ -257,7 +277,7 @@ const targetelem = document.getElementById("target");
 const startButton = document.getElementById("startButton");
 const gameTitle = document.getElementById("gameTitle");
 
-// target を非表示にする
+// 主人公を非表示にする
 targetelem.style.display = "none";
 
 // スタートボタンのクリックイベント
@@ -271,8 +291,8 @@ startButton.addEventListener("click", function () {
     // 主人公を移動領域の中心に
     anime({
         targets: "#target",
-        translateX: targetField.offsetWidth / 2 - targetelem.clientWidth / 2,
-        translateY: targetField.offsetTop + targetField.offsetHeight / 2 - targetelem.clientHeight / 2,
+        translateX: targetField.offsetWidth / 2 - targetelem.offsetWidth / 2,
+        translateY: targetField.offsetTop + targetField.offsetHeight / 2 - targetelem.offsetHeight / 2,
         duration: 0,
         easing: "linear",
     });
@@ -297,6 +317,8 @@ startButton.addEventListener("click", function () {
 </iframe>
 
 ## 障害物を降らせよう
+
+-   今までのものを組み合わせて、ゲームを組み立てるとこのようになります。
 
 <iframe height="300" style="width: 100%; height: 600px;" scrolling="no" title="Game" src="https://codepen.io/YasaiRa-men/embed/YzMmoKX?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/YasaiRa-men/pen/YzMmoKX">

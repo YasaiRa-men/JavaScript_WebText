@@ -50,6 +50,8 @@ class="toc-section-number">1</span> まずはステージを作成しよう</a>
 class="toc-section-number">1.1</span> 枠の作成</a></li>
 <li><a href="#主人公の作成" id="toc-主人公の作成"><span
 class="toc-section-number">1.2</span> 主人公の作成</a></li>
+<li><a href="#主人公の位置を中央に" id="toc-主人公の位置を中央に"><span
+class="toc-section-number">1.3</span> 主人公の位置を中央に</a></li>
 </ul></li>
 <li><a href="#主人公を動かしてみよう"
 id="toc-主人公を動かしてみよう"><span
@@ -71,6 +73,11 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
       <h1 data-number="1" id="まずはステージを作成しよう"><span
       class="header-section-number">1</span>
       まずはステージを作成しよう</h1>
+      <ul>
+      <li>これからゲームを作っていきますが、まだ紹介していない HTML
+      タグや CSS
+      タグがありますが、それらは出てきたときに軽く解説します。</li>
+      </ul>
       <h2 data-number="1.1" id="枠の作成"><span
       class="header-section-number">1.1</span> 枠の作成</h2>
       <ul>
@@ -107,8 +114,16 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
       <figcaption aria-hidden="true">img</figcaption>
       </figure>
       <ul>
-      <li>今回は、スマホをメインにすることから縦長にします。</li>
+      <li><p>今回は、スマホをメインにすることから縦長にします。</p></li>
+      <li><p><code>main</code>というタグを使っていますが、意味合い的には<code>div</code>と同じです。</p></li>
       </ul>
+      <div class="note type-tips">
+      <ul>
+      <li>内部では主要部分として扱われ、<code>main</code>は 1 つの HTML
+      に基本 1
+      つまでですが、それ例外の扱いは<code>div</code>と同じです。</li>
+      </ul>
+      </div>
       <div class="sourceCode" id="cb2" data-caption="index.html"><pre
       class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;ja&quot;</span><span class="dt">&gt;</span></span>
@@ -120,7 +135,7 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb2-10"><a href="#cb2-10"></a>    <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>      <span class="co">&lt;!--ゲーム画面の大きさ--&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>        <span class="co">&lt;!--ゲーム画面の大きさ--&gt;</span></span>
 <span id="cb2-12"><a href="#cb2-12"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mainWindow&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb2-13"><a href="#cb2-13"></a></span>
 <span id="cb2-14"><a href="#cb2-14"></a>            <span class="co">&lt;!--主人公の移動領域--&gt;</span></span>
@@ -136,46 +151,63 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
 <span id="cb2-24"><a href="#cb2-24"></a>    <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
 <span id="cb2-25"><a href="#cb2-25"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb2-26"><a href="#cb2-26"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+      <ul>
+      <li><p>前回の CSS
+      では、主要なものを紹介しましたが、あまり使わないものもあります。</p></li>
+      <li><p>ここでは、それらについて軽く触れておきます。</p></li>
+      </ul>
+      <p>position: absolute;</p>
+      <ul>
+      <li><p><code>position</code>プロパティでは、配置をどのようにするかを決めるものです。</p></li>
+      <li><p><code>absolute</code>だと、その要素を現在の位置から<u>好きな場所に配置すること</u>ができるようになります。</p></li>
+      </ul>
+      <div class="note type-tips">
+      <ul>
+      <li>top : 要素が起点の上からどれだけ離れているかを示します</li>
+      <li>bottom : 要素が起点の下からどれだけ離れているかを示します</li>
+      <li>left : 要素が起点の左からどれだけ離れているかを示します</li>
+      <li>right : 要素が起点の右からどれだけ離れているかを示します</li>
+      </ul>
+      </div>
       <div class="sourceCode" id="cb3" data-caption="style.css"><pre
       class="sourceCode numberSource css numberLines"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1"></a>html<span class="op">,</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>body {</span>
-<span id="cb3-3"><a href="#cb3-3"></a>    <span class="kw">overflow</span><span class="ch">:</span> <span class="dv">hidden</span><span class="op">;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>}</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>body {</span>
-<span id="cb3-8"><a href="#cb3-8"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a>}</span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a>main {</span>
-<span id="cb3-12"><a href="#cb3-12"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateX(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>}</span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="pp">#mainWindow</span> {</span>
-<span id="cb3-18"><a href="#cb3-18"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">rgb(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">151</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>    <span class="kw">aspect-ratio</span><span class="ch">:</span> <span class="dv">9</span> / <span class="dv">16</span><span class="op">;</span></span>
-<span id="cb3-21"><a href="#cb3-21"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateX(</span><span class="dv">-50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb3-22"><a href="#cb3-22"></a>}</span>
-<span id="cb3-23"><a href="#cb3-23"></a></span>
-<span id="cb3-24"><a href="#cb3-24"></a><span class="pp">#gameTitle</span> {</span>
-<span id="cb3-25"><a href="#cb3-25"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb3-26"><a href="#cb3-26"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
-<span id="cb3-27"><a href="#cb3-27"></a>    <span class="kw">top</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-28"><a href="#cb3-28"></a>    <span class="kw">left</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-29"><a href="#cb3-29"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translate(</span><span class="dv">-50</span><span class="dt">%</span><span class="op">,</span> <span class="dv">-50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb3-30"><a href="#cb3-30"></a>}</span>
-<span id="cb3-31"><a href="#cb3-31"></a></span>
-<span id="cb3-32"><a href="#cb3-32"></a><span class="pp">#targetField</span> {</span>
-<span id="cb3-33"><a href="#cb3-33"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">rgb(</span><span class="dv">85</span><span class="op">,</span> <span class="dv">131</span><span class="op">,</span> <span class="dv">233</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb3-34"><a href="#cb3-34"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb3-35"><a href="#cb3-35"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb3-36"><a href="#cb3-36"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb3-37"><a href="#cb3-37"></a>    <span class="kw">bottom</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb3-38"><a href="#cb3-38"></a>    <span class="kw">z-index</span><span class="ch">:</span> <span class="dv">-1</span><span class="op">;</span></span>
-<span id="cb3-39"><a href="#cb3-39"></a>}</span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a>body {</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a>main {</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateX(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span> <span class="co">/*メインの位置を50%右にずらす*/</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>}</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="pp">#mainWindow</span> {</span>
+<span id="cb3-17"><a href="#cb3-17"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">rgb(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">151</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>    <span class="kw">aspect-ratio</span><span class="ch">:</span> <span class="dv">9</span> / <span class="dv">16</span><span class="op">;</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateX(</span><span class="dv">-50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span> <span class="co">/*ステージ枠を50%左にずらす*/</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>}</span>
+<span id="cb3-22"><a href="#cb3-22"></a></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="pp">#gameTitle</span> {</span>
+<span id="cb3-24"><a href="#cb3-24"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span> <span class="co">/*相対位置にする*/</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>    <span class="kw">top</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span> <span class="co">/*上から50%の位置に*/</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a>    <span class="kw">left</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span> <span class="co">/*左から50%の位置に*/</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translate(</span><span class="dv">-50</span><span class="dt">%</span><span class="op">,</span> <span class="dv">-50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a>}</span>
+<span id="cb3-30"><a href="#cb3-30"></a></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="pp">#targetField</span> {</span>
+<span id="cb3-32"><a href="#cb3-32"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">rgb(</span><span class="dv">85</span><span class="op">,</span> <span class="dv">131</span><span class="op">,</span> <span class="dv">233</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">18</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a>    <span class="kw">bottom</span><span class="ch">:</span> <span class="dv">18</span><span class="dt">%</span><span class="op">;</span> <span class="co">/*下から18%の位置に*/</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a>    <span class="kw">z-index</span><span class="ch">:</span> <span class="dv">-1</span><span class="op">;</span> <span class="co">/*レイヤーを最背面に*/</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a>}</span></code></pre></div>
       <ul>
       <li>この 2 つを実行すると、以下のようになります。</li>
       </ul>
@@ -196,14 +228,19 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
       <li>主人公は、のちに JavaScript で操作できるように、“target”という
       id 属性をつけます。</li>
       </ul>
-      <div class="sourceCode" id="cb4"
-      data-caption="example02.html"><pre
+      <div class="note type-tips">
+      <ul>
+      <li>js ファイルを作ったら、HTML
+      に<code>script</code>タグを追加するのを忘れずに！</li>
+      </ul>
+      </div>
+      <div class="sourceCode" id="cb4" data-caption="index.html"><pre
       class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;ja&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Game<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>避けプル<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
 <span id="cb4-7"><a href="#cb4-7"></a>    <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;style.css&quot;</span><span class="dt">&gt;</span></span>
 <span id="cb4-8"><a href="#cb4-8"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
 <span id="cb4-9"><a href="#cb4-9"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
@@ -226,56 +263,19 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
       <ul>
       <li>また、主人公には分かりやすいように色を茶色の丸にしておきます。</li>
       </ul>
-      <div class="sourceCode" id="cb5" data-caption="example01.css"><pre
-      class="sourceCode numberSource css numberLines"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1"></a>html<span class="op">,</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>body {</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="kw">overflow</span><span class="ch">:</span> <span class="dv">hidden</span><span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>}</span>
-<span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a>body {</span>
+      <div class="sourceCode" id="cb5" data-caption="style.css"><pre
+      class="sourceCode numberSource css numberLines"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">/*既存のコード*/</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">/*主人公*/</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="pp">#target</span> {</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>}</span>
-<span id="cb5-10"><a href="#cb5-10"></a></span>
-<span id="cb5-11"><a href="#cb5-11"></a>main {</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateX(</span><span class="dv">50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a>}</span>
-<span id="cb5-16"><a href="#cb5-16"></a></span>
-<span id="cb5-17"><a href="#cb5-17"></a><span class="pp">#mainWindow</span> {</span>
-<span id="cb5-18"><a href="#cb5-18"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">rgb(</span><span class="dv">3</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">151</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb5-19"><a href="#cb5-19"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-20"><a href="#cb5-20"></a>    <span class="kw">aspect-ratio</span><span class="ch">:</span> <span class="dv">9</span> / <span class="dv">16</span><span class="op">;</span></span>
-<span id="cb5-21"><a href="#cb5-21"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translateX(</span><span class="dv">-50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb5-22"><a href="#cb5-22"></a>}</span>
-<span id="cb5-23"><a href="#cb5-23"></a></span>
-<span id="cb5-24"><a href="#cb5-24"></a><span class="pp">#gameTitle</span> {</span>
-<span id="cb5-25"><a href="#cb5-25"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb5-26"><a href="#cb5-26"></a>    <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
-<span id="cb5-27"><a href="#cb5-27"></a>    <span class="kw">top</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-28"><a href="#cb5-28"></a>    <span class="kw">left</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-29"><a href="#cb5-29"></a>    <span class="kw">transform</span><span class="ch">:</span> <span class="fu">translate(</span><span class="dv">-50</span><span class="dt">%</span><span class="op">,</span> <span class="dv">-50</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb5-30"><a href="#cb5-30"></a>}</span>
-<span id="cb5-31"><a href="#cb5-31"></a></span>
-<span id="cb5-32"><a href="#cb5-32"></a><span class="co">/*主人公*/</span></span>
-<span id="cb5-33"><a href="#cb5-33"></a><span class="pp">#target</span> {</span>
-<span id="cb5-34"><a href="#cb5-34"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-35"><a href="#cb5-35"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-36"><a href="#cb5-36"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-37"><a href="#cb5-37"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb5-38"><a href="#cb5-38"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">brown</span><span class="op">;</span></span>
-<span id="cb5-39"><a href="#cb5-39"></a>    <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-40"><a href="#cb5-40"></a>}</span>
-<span id="cb5-41"><a href="#cb5-41"></a></span>
-<span id="cb5-42"><a href="#cb5-42"></a><span class="pp">#targetField</span> {</span>
-<span id="cb5-43"><a href="#cb5-43"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">rgb(</span><span class="dv">85</span><span class="op">,</span> <span class="dv">131</span><span class="op">,</span> <span class="dv">233</span><span class="fu">)</span><span class="op">;</span></span>
-<span id="cb5-44"><a href="#cb5-44"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
-<span id="cb5-45"><a href="#cb5-45"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></span>
-<span id="cb5-46"><a href="#cb5-46"></a>    <span class="kw">height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-47"><a href="#cb5-47"></a>    <span class="kw">bottom</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></span>
-<span id="cb5-48"><a href="#cb5-48"></a>    <span class="kw">z-index</span><span class="ch">:</span> <span class="dv">-1</span><span class="op">;</span></span>
-<span id="cb5-49"><a href="#cb5-49"></a>}</span></code></pre></div>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">brown</span><span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="kw">border-radius</span><span class="ch">:</span> <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>}</span></code></pre></div>
       <ul>
       <li>これによって、このようになりました。</li>
       </ul>
@@ -289,64 +289,86 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
       <ul>
       <li>分かりやすく主人公が出てきましたが、左上にいます。</li>
       <li>これらも自分で設定していかなければなりません。</li>
-      <li>スタートボタンが押されたら主人公が移動範囲内の中心に出現するようにしよう。</li>
+      </ul>
+      <h2 data-number="1.3" id="主人公の位置を中央に"><span
+      class="header-section-number">1.3</span> 主人公の位置を中央に</h2>
+      <ul>
+      <li><p>スタートボタンが押されたら主人公が移動範囲内の中心に出現するようにしたいが、それには少し計算が必要です。</p></li>
+      <li><p>要素の基準点は、基本<u>左上</u>にあるため、それに合わせる必要があります。</p></li>
+      <li><p>主人公の要素を<code>target</code>、主人公の移動する領域の要素を<code>targetField</code>とすると、</p></li>
+      </ul>
+      <div class="sourceCode" id="cb6" data-caption="main.js"><pre
+      class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">// 中心のX座標</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">// 移動領域の横幅の半分 - 主人公の横幅の半分</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">let</span> CenterX <span class="op">=</span> targetField<span class="op">.</span><span class="at">offsetWidth</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> targetelem<span class="op">.</span><span class="at">offsetWidth</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co">// 中心のY座標</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">// 移動領域までの高さ + 移動領域の縦幅の半分 - 主人公の縦幅の半分</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="kw">let</span> CenterY <span class="op">=</span> targetField<span class="op">.</span><span class="at">offsetTop</span> <span class="op">+</span> targetField<span class="op">.</span><span class="at">offsetHeight</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> targetelem<span class="op">.</span><span class="at">offsetHeight</span> <span class="op">/</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+      <ul>
+      <li>となることが分かる。</li>
+      </ul>
+      <figure>
+      <img src="figs/js/center.png" alt="img" />
+      <figcaption aria-hidden="true">img</figcaption>
+      </figure>
+      <ul>
       <li>中心に配置するために ainme.js を用います。</li>
       </ul>
-      <div class="sourceCode" id="cb6"
-      data-caption="example02.html"><pre
-      class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;ja&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Game<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a>    <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mainWindow&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a></span>
-<span id="cb6-12"><a href="#cb6-12"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;targetField&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a>            <span class="co">&lt;!-- ここに主人公にするdivを配置 --&gt;</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;target&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;gameTitle&quot;</span><span class="dt">&gt;</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>                <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>避けゲー<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a>                <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;startButton&quot;</span><span class="dt">&gt;</span>スタート<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a>            <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a></span>
-<span id="cb6-21"><a href="#cb6-21"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a>    <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a>    <span class="co">&lt;!--anime.jsを使用--&gt;</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;main.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
-      <div class="sourceCode" id="cb7" data-caption="main.js"><pre
-      class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">const</span> targetelem <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;target&quot;</span>)<span class="op">;</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">const</span> startButton <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;startButton&quot;</span>)<span class="op">;</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">const</span> gameTitle <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;gameTitle&quot;</span>)<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">// target を非表示にする</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>targetelem<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;none&quot;</span><span class="op">;</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="co">// スタートボタンのクリックイベント</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a>startButton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () {</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    <span class="co">// ゲームタイトルとスタートボタンを非表示にする</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a>    gameTitle<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;none&quot;</span><span class="op">;</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a></span>
-<span id="cb7-13"><a href="#cb7-13"></a>    <span class="co">// target を表示する</span></span>
-<span id="cb7-14"><a href="#cb7-14"></a>    targetelem<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;block&quot;</span><span class="op">;</span></span>
+      <div class="sourceCode" id="cb7" data-caption="index.html"><pre
+      class="sourceCode numberSource html numberLines"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;ja&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>避けプル<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>    <span class="dt">&lt;</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>        <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;mainWindow&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;targetField&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>            <span class="co">&lt;!-- ここに主人公にするdivを配置 --&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;target&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb7-15"><a href="#cb7-15"></a></span>
-<span id="cb7-16"><a href="#cb7-16"></a>    <span class="co">// 主人公を移動領域の中心に</span></span>
-<span id="cb7-17"><a href="#cb7-17"></a>    <span class="fu">anime</span>({</span>
-<span id="cb7-18"><a href="#cb7-18"></a>        <span class="dt">targets</span><span class="op">:</span> <span class="st">&quot;#target&quot;</span><span class="op">,</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a>        <span class="dt">translateX</span><span class="op">:</span> targetField<span class="op">.</span><span class="at">offsetWidth</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> targetelem<span class="op">.</span><span class="at">clientWidth</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a>        <span class="dt">translateY</span><span class="op">:</span> targetField<span class="op">.</span><span class="at">offsetTop</span> <span class="op">+</span> targetField<span class="op">.</span><span class="at">offsetHeight</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> targetelem<span class="op">.</span><span class="at">clientHeight</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span></span>
-<span id="cb7-21"><a href="#cb7-21"></a>        <span class="dt">duration</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a>        <span class="dt">easing</span><span class="op">:</span> <span class="st">&quot;linear&quot;</span><span class="op">,</span></span>
-<span id="cb7-23"><a href="#cb7-23"></a>    })<span class="op">;</span></span>
-<span id="cb7-24"><a href="#cb7-24"></a></span>
-<span id="cb7-25"><a href="#cb7-25"></a>})<span class="op">;</span></span></code></pre></div>
+<span id="cb7-16"><a href="#cb7-16"></a>            <span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;gameTitle&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>                <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span>避けゲー<span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>                <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;startButton&quot;</span><span class="dt">&gt;</span>スタート<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a>            <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb7-20"><a href="#cb7-20"></a></span>
+<span id="cb7-21"><a href="#cb7-21"></a>        <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb7-22"><a href="#cb7-22"></a>    <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb7-23"><a href="#cb7-23"></a>    <span class="co">&lt;!--anime.jsを使用--&gt;</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb7-25"><a href="#cb7-25"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;main.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-27"><a href="#cb7-27"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+      <div class="sourceCode" id="cb8" data-caption="main.js"><pre
+      class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">const</span> targetelem <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;target&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">const</span> startButton <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;startButton&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">const</span> gameTitle <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;gameTitle&quot;</span>)<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">// 主人公を非表示にする</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>targetelem<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;none&quot;</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">// スタートボタンのクリックイベント</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a>startButton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span> () {</span>
+<span id="cb8-10"><a href="#cb8-10"></a>    <span class="co">// ゲームタイトルとスタートボタンを非表示にする</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>    gameTitle<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;none&quot;</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a>    <span class="co">// target を表示する</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>    targetelem<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">display</span> <span class="op">=</span> <span class="st">&quot;block&quot;</span><span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a></span>
+<span id="cb8-16"><a href="#cb8-16"></a>    <span class="co">// 主人公を移動領域の中心に</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a>    <span class="fu">anime</span>({</span>
+<span id="cb8-18"><a href="#cb8-18"></a>        <span class="dt">targets</span><span class="op">:</span> <span class="st">&quot;#target&quot;</span><span class="op">,</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a>        <span class="dt">translateX</span><span class="op">:</span> targetField<span class="op">.</span><span class="at">offsetWidth</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> targetelem<span class="op">.</span><span class="at">offsetWidth</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>        <span class="dt">translateY</span><span class="op">:</span> targetField<span class="op">.</span><span class="at">offsetTop</span> <span class="op">+</span> targetField<span class="op">.</span><span class="at">offsetHeight</span> <span class="op">/</span> <span class="dv">2</span> <span class="op">-</span> targetelem<span class="op">.</span><span class="at">offsetHeight</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a>        <span class="dt">duration</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>        <span class="dt">easing</span><span class="op">:</span> <span class="st">&quot;linear&quot;</span><span class="op">,</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a>    })<span class="op">;</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a></span>
+<span id="cb8-25"><a href="#cb8-25"></a>})<span class="op">;</span></span></code></pre></div>
       <iframe height="300" style="width: 100%; height: 600px;" scrolling="no" title="Example_01" src="https://codepen.io/YasaiRa-men/embed/XWQvLRQ?default-tab=html%2Cresult&amp;editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
       See the Pen <a href="https://codepen.io/YasaiRa-men/pen/XWQvLRQ">
       Example_01</a> by バナナフライ
@@ -368,6 +390,9 @@ class="toc-section-number">3</span> 障害物を降らせよう</a></li>
       </iframe>
       <h1 data-number="3" id="障害物を降らせよう"><span
       class="header-section-number">3</span> 障害物を降らせよう</h1>
+      <ul>
+      <li>今までのものを組み合わせて、ゲームを組み立てるとこのようになります。</li>
+      </ul>
       <iframe height="300" style="width: 100%; height: 600px;" scrolling="no" title="Game" src="https://codepen.io/YasaiRa-men/embed/YzMmoKX?default-tab=html%2Cresult&amp;editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
       See the Pen <a href="https://codepen.io/YasaiRa-men/pen/YzMmoKX">
       Game</a> by バナナフライ

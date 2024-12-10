@@ -51,31 +51,22 @@ anime({
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
-### Anime.js の応用
+### Anime.js のイージング
 
--   Anime.js は、キーフレームを使用したアニメーションや、複数のアニメーションプロパティの同時制御もサポートしています。以下の例では、複数のアニメーションプロパティを同時に制御し、より複雑なアニメーションを作成しています。
+-   Anime.js は、様々なイージング（動き方）を用意してくれています。
+
+-   [こちら](https://animejs.com/documentation/#pennerFunctions)から様々なイージングを見ることができるので、以下のコードの`easing`に色々なものを入れて試してみましょう。
 
 ```javascript{.numberLines caption="main.js"}
 anime({
   targets: '.box',
-  translateX: [
-    { value: 250, duration: 1000 },
-    { value: 0, duration: 1000 }
-  ],
-  rotate: {
-    value: '1turn',
-    easing: 'easeInOutSine'
-  },
-  scale: [
-    { value: 2, duration: 1000, delay: 500 },
-    { value: 1, duration: 1000 }
-  ],
-  delay: 1000, // アニメーション開始までの遅延
+  translateX: 250,
+  rotate: '1turn',
+  duration: 2000,
+  easing: "easeInOutSine",
   loop: true
 });
 ```
-
--   このコードでは、`translateX`, `rotate`, `scale`の各プロパティを使用して、要素を移動、回転、拡大縮小するアニメーションを作成しています。各プロパティは個別に時間を制御でき、より精密なアニメーションが可能です。
 
 <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/YasaiRa-men/embed/ExBpopN?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/YasaiRa-men/pen/ExBpopN">
