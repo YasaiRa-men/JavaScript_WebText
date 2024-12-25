@@ -82,7 +82,7 @@ var:
 
 -   前回の CSS では、主要なものを紹介しましたが、あまり使わないものもあります。
 
--   ここでは、それらについて軽く触れておきます。
+-   ここでは、それらについて軽く触れておきます ���
 
 position: absolute;
 
@@ -312,7 +312,7 @@ startButton.addEventListener("click", function () {
 
 <iframe height="300" style="width: 100%; height: 600px;" scrolling="no" title="Example_02" src="https://codepen.io/YasaiRa-men/embed/QWPeXMx?default-tab=html%2Cresult&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/YasaiRa-men/pen/QWPeXMx">
-  Example_02</a> by バナナフライ (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
+  Example_02</a> by バナナフラ�� (<a href="https://codepen.io/YasaiRa-men">@YasaiRa-men</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
 
@@ -333,3 +333,73 @@ startButton.addEventListener("click", function () {
 -   target の div を img に変えることで、好きな画像に変更できます。
 
 ![img](figs/game/download.png)
+
+## GitHub にゲームを公開する手順
+
+### 1. GitHub アカウントを作成する
+
+-   GitHub の公式サイト（https://github.com）にアクセスし、アカウントを作成します。
+
+### 2. 新しいリポジトリを作成する
+
+-   GitHub にログイン後、右上の「+」アイコンをクリックし、「New repository」を選択します。
+-   リポジトリ名を入力し、必要に応じて説明を追加します。
+-   「Public」を選択し、「Create repository」をクリックします。
+
+### 3. Git をインストールする
+
+-   Git がインストールされていない場合は、公式サイト（https://git-scm.com）からダウンロードしてインストールします。
+
+### 4. プロジェクトフォルダを Git リポジトリにする
+
+-   ターミナル（またはコマンドプロンプト）を開き、プロジェクトのフォルダに移動します。
+
+```bash
+cd /path/to/your/project
+```
+
+-   Git リポジトリを初期化します。
+
+```bash
+git init
+```
+
+### 5. ファイルを追加してコミットする
+
+-   すべてのファイルをステージングエリアに追加します。
+
+```bash
+git add .
+```
+
+-   変更をコミットします。
+
+```bash
+git commit -m "初回コミット"
+```
+
+### 6. リモートリポジトリを追加する
+
+-   GitHub で作成したリポジトリの URL をコピーし、以下のコマンドでリモートリポジトリを追加します。
+
+```bash
+git remote add origin https://github.com/username/repository.git
+```
+
+（`username`と`repository`は自分の GitHub アカウント名とリポジトリ名に置き換えてください。）
+
+### 7. リモートリポジトリにプッシュする
+
+-   最後に、ローカルの変更を GitHub にプッシュします。
+
+```bash
+git push -u origin master
+```
+
+### 8. GitHub Pages で公開する（オプション）
+
+-   GitHub リポジトリの「Settings」タブに移動し、「Pages」セクションを見つけます。
+-   「Source」ドロップダウンメニューから「master branch」を選択し、「Save」をクリックします。
+-   数分後、指定した URL でゲームが公開されます。
+
+これで、あなたのゲームが GitHub に公開されました！他の人と共有して楽しんでください。

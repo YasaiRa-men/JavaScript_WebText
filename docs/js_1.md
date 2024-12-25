@@ -57,7 +57,7 @@ let elementsByTag = document.getElementsByTagName("div");
 
 -   今回の例だと、全て同じ要素を取得しています。
 
--   これらを取得することによって、その HTML 要素の文字や色あどが JavaScript で変更できるようになります。
+-   これらを取得することによって、その HTML 要素の文字や色などが JavaScript で変更できるようになります。
 
 ### 要素の大きさを取得
 
@@ -257,7 +257,7 @@ element.insertAdjacentHTML(position, htmlString);
     主に 回転（rotate）、拡大縮小（scale）、移動（translate） などの値を取得したいときに使います。
 
 ```javascript{.numberLines caption="main.js"}
-let target_element = documentgetElementById("target");
+let target_element = document.getElementById("target");
 
 // m41プロパティだとその要素のx座標
 console.log(new WebKitCSSMatrix(target_element.style.transform).m41);
@@ -307,7 +307,7 @@ document.addEventListener("wheel", function(event) {
 
 -   これを個別で追加することによって、ユーザーが行ったことを検知することができます。
 
--   以下は、ボタンクリックイベトにリスナーを追加する例です。
+-   以下は、ボタンクリックイベントにリスナーを追加する例です。
 
 ```html{caption="index.html"}
 <button id="myButton">Click me!</button>

@@ -155,7 +155,7 @@ class="toc-section-number">6</span> まとめ</a></li>
       <ul>
       <li><p>今回の例だと、全て同じ要素を取得しています。</p></li>
       <li><p>これらを取得することによって、その HTML
-      要素の文字や色あどが JavaScript
+      要素の文字や色などが JavaScript
       で変更できるようになります。</p></li>
       </ul>
       <h2 data-number="2.3" id="要素の大きさを取得"><span
@@ -391,7 +391,7 @@ class="toc-section-number">6</span> まとめ</a></li>
       などの値を取得したいときに使います。</li>
       </ul>
       <div class="sourceCode" id="cb14" data-caption="main.js"><pre
-      class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">let</span> target_element <span class="op">=</span> <span class="fu">documentgetElementById</span>(<span class="st">&quot;target&quot;</span>)<span class="op">;</span></span>
+      class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">let</span> target_element <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;target&quot;</span>)<span class="op">;</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="co">// m41プロパティだとその要素のx座標</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">new</span> <span class="fu">WebKitCSSMatrix</span>(target_element<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">transform</span>)<span class="op">.</span><span class="at">m41</span>)<span class="op">;</span></span>
@@ -441,7 +441,7 @@ class="toc-section-number">6</span> まとめ</a></li>
       <ul>
       <li><p>イベントリスナーは、例えば、ボタンをクリックしたとき、マウスを動かしたとき、文字を入力したとき…など、様々なイベントが発生したときに呼び出されます。</p></li>
       <li><p>これを個別で追加することによって、ユーザーが行ったことを検知することができます。</p></li>
-      <li><p>以下は、ボタンクリックイベトにリスナーを追加する例です。</p></li>
+      <li><p>以下は、ボタンクリックイベントにリスナーを追加する例です。</p></li>
       </ul>
       <div class="sourceCode" id="cb17" data-caption="index.html"><pre
       class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;myButton&quot;</span><span class="dt">&gt;</span>Click me!<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
