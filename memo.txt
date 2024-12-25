@@ -1,2 +1,0 @@
-・pandoc 手動
-pandoc docs/index.md -o docs/index.html -d pandoc-make.yaml
